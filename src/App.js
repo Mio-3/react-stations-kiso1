@@ -11,11 +11,16 @@ export const App = () => {
       .then(response => response.json())
       .then(threads => console.log(threads))
     });
+    
   
     return (
-      <div>
-        <h1>掲示板</h1>
-        <header>新着スレッド</header>
+      <div className='threadlist'>
+        <h1>新着スレッド</h1>
+        <ul>
+          {threads.map((thread) => (
+            <li key={thread.id}>{thread.title}</li>
+          ))}
+        </ul>
       </div>
   )
 };
