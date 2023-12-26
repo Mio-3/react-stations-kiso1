@@ -3,14 +3,13 @@ import axios from 'react';
 
 
 
-
 export const App = () => {
     const [threads,setThreads] = useState([]);
     useEffect(() => {
       fetch("https://railway.bulletinboard.techtrain.dev/threads")
       .then(response => response.json())
-      .then(threads => console.log(threads))
-    });
+      .then(threads => setThreads(threads))
+    },[]);
     
   
     return (
